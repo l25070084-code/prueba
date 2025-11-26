@@ -1,455 +1,656 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ángel Gabriel Vidal Novelo - Ingeniero en Sistemas</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ángel Gabriel Vidal Novelo - Ingeniero en Sistemas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
+    /* Header */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
 
-        /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #667eea;
+    }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #667eea;
-        }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
 
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+    nav a:hover {
+      color: #667eea;
+    }
 
-        nav a:hover {
-            color: #667eea;
-        }
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 2rem 2rem;
+      background: url('https://images.unsplash.com/photo-1517694712202-14f94cbca5f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover
+        no-repeat;
+      position: relative;
+      z-index: 1;
+      color: white;
+    }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 6rem 2rem 2rem;
-        }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
 
-        .hero-content {
-            max-width: 1200px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
+    .hero-content {
+      max-width: 1200px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      /* Two columns for text and image */
+      gap: 4rem;
+      align-items: center;
+    }
 
-        .hero-text h1 {
-            font-size: 3rem;
-            color: #2d3748;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
+    .hero-text {
+      text-align: left;
+      /* Align text to the left */
+    }
 
-        .hero-text .highlight {
-            color: #667eea;
-        }
+    .hero-text h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      animation: fadeIn 1s ease-in-out;
+    }
 
-        .hero-text h2 {
-            font-size: 1.5rem;
-            color: #764ba2;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
+    .hero-text .highlight {
+      color: #667eea;
+    }
 
-        .hero-text p {
-            font-size: 1.1rem;
-            color: #4a5568;
-            margin-bottom: 2rem;
-        }
+    .hero-text h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+      animation: slideInRight 1s ease-in-out;
+    }
 
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
+    .hero-text p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      animation: slideInLeft 1s ease-in-out;
+    }
 
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
+    .btn {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      align-items: center;
+    }
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-        }
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
 
-        .btn-secondary {
-            background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
-        }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    }
 
-        .btn-secondary:hover {
-            background: #667eea;
-            color: white;
-        }
+    .btn-secondary {
+      background: white;
+      color: #667eea;
+      border: 2px solid #667eea;
+    }
 
-        /* Photo Section */
-        .hero-photo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    .btn-secondary:hover {
+      background: #667eea;
+      color: white;
+    }
 
-        .photo-container {
-            position: relative;
-            width: 350px;
-            height: 350px;
-        }
+    .btn-whatsapp {
+      background-color: #25D366;
+      color: white;
+    }
 
-        .photo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        }
+    .btn-whatsapp:hover {
+      background-color: #128C7E;
+    }
 
-        .photo-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            color: white;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        }
+    /* Photo Section */
+    .hero-photo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        /* Skills Section */
-        .skills {
-            padding: 4rem 2rem;
-            background: white;
-        }
+    .photo-container {
+      position: relative;
+      width: 350px;
+      height: 350px;
+    }
 
-        .skills-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .photo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #2d3748;
-            margin-bottom: 3rem;
-        }
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      color: white;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
+    /* Skills Section */
+    .skills {
+      padding: 4rem 2rem;
+      background: white;
+    }
 
-        .skill-card {
-            background: #f7fafc;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 2px solid transparent;
-        }
+    .skills-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-        .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
-            border-color: #667eea;
-        }
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #2d3748;
+      margin-bottom: 3rem;
+    }
 
-        .skill-card i {
-            font-size: 3rem;
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
 
-        .skill-card h3 {
-            font-size: 1.3rem;
-            color: #2d3748;
-            margin-bottom: 0.5rem;
-        }
+    .skill-card {
+      background: #f7fafc;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 2px solid transparent;
+    }
 
-        .experience-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
+      border-color: #667eea;
+    }
 
-        /* About Section */
-        .about {
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-        }
+    .skill-card i {
+      font-size: 3rem;
+      color: #667eea;
+      margin-bottom: 1rem;
+    }
 
-        .about-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .skill-card h3 {
+      font-size: 1.3rem;
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+    }
 
-        .about-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+    .experience-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
 
-        .about-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
+    /* About Section */
+    .about {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    }
 
-        .about-card i {
-            font-size: 2.5rem;
-            color: #764ba2;
-            margin-bottom: 1rem;
-        }
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-        .about-card h3 {
-            font-size: 1.5rem;
-            color: #2d3748;
-            margin-bottom: 1rem;
-        }
+    .about-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
 
-        .about-card p {
-            color: #4a5568;
-            line-height: 1.8;
-        }
+    .about-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
 
-        /* Footer */
-        footer {
-            background: #2d3748;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
+    .about-card i {
+      font-size: 2.5rem;
+      color: #764ba2;
+      margin-bottom: 1rem;
+    }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-        }
+    .about-card h3 {
+      font-size: 1.5rem;
+      color: #2d3748;
+      margin-bottom: 1rem;
+    }
 
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
+    .about-card p {
+      color: #4a5568;
+      line-height: 1.8;
+    }
 
-        .social-links a:hover {
-            color: #667eea;
-        }
+    /* Hobbies Section */
+    .hobbies {
+      padding: 4rem 2rem;
+      background: white;
+    }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                padding: 2rem;
-            }
+    .hobbies-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-            .hero-text h1 {
-                font-size: 2rem;
-            }
+    /* Footer */
+    footer {
+      background: #2d3748;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
 
-            .hero-text h2 {
-                font-size: 1.2rem;
-            }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
 
-            nav ul {
-                gap: 1rem;
-            }
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
 
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
+    .social-links a:hover {
+      color: #667eea;
+    }
 
-            .photo-container {
-                width: 250px;
-                height: 250px;
-            }
-        }
-    </style>
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        /* Stack text and image on smaller screens */
+        padding: 2rem;
+      }
+
+      .hero-text {
+        text-align: center;
+        /* Center text on smaller screens */
+      }
+
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .hero-text h2 {
+        font-size: 1.2rem;
+      }
+
+      nav ul {
+        gap: 1rem;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .photo-container {
+        width: 250px;
+        height: 250px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-50px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        transform: translateX(50px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">AGVN</div>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#sobre-mi">Sobre Mí</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Hola, soy <span class="highlight">Ángel Gabriel Vidal Novelo</span></h1>
-                <h2>Ingeniero en Sistemas</h2>
-                <p>Desarrollador web apasionado con 3 años de experiencia en HTML, CSS y Java. Me especializo en crear páginas web modernas y funcionales, trabajando en equipo y motivando a otros desarrolladores.</p>
-                <div class="cta-buttons">
-                    <a href="#contacto" class="btn btn-primary">Contáctame</a>
-                    <a href="#habilidades" class="btn btn-secondary">Ver Habilidades</a>
-                </div>
-            </div>
-            <div class="hero-photo">
-                <div class="photo-container">
-                    <!-- Reemplaza la siguiente línea con tu foto -->
-                    <!-- <img src="tu-foto.jpg" alt="Ángel Gabriel Vidal Novelo"> -->
-                    <div class="photo-placeholder">
-                        <i class="fas fa-user"></i>
-                    </div>
-                </div>
-            </div>
+  <!-- Header -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand logo" href="#">AGVN</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#inicio">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#habilidades">Habilidades</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#sobre-mi">Sobre Mí</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contacto">Contacto</a>
+            </li>
+          </ul>
         </div>
-    </section>
+      </div>
+    </nav>
+  </header>
 
-    <!-- Skills Section -->
-    <section class="skills" id="habilidades">
-        <div class="skills-container">
-            <h2 class="section-title">Mis Habilidades</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fab fa-html5"></i>
-                    <h3>HTML5</h3>
-                    <p>Desarrollo de estructuras web semánticas y accesibles</p>
-                    <span class="experience-badge">3 años</span>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-css3-alt"></i>
-                    <h3>CSS3</h3>
-                    <p>Diseño responsive y animaciones modernas</p>
-                    <span class="experience-badge">3 años</span>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-java"></i>
-                    <h3>Java</h3>
-                    <p>Desarrollo de aplicaciones robustas y escalables</p>
-                    <span class="experience-badge">3 años</span>
-                </div>
+  <!-- Hero Section -->
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="display-4">Hola, soy <span class="highlight">Ángel Gabriel Vidal Novelo</span></h1>
+        <h2 class="lead">Ingeniero en Sistemas</h2>
+        <p>Desarrollador web apasionado con 3 años de experiencia en HTML, CSS y Java. Me especializo en crear páginas
+          web modernas y funcionales, trabajando en equipo y motivando a otros desarrolladores.</p>
+        <div class="cta-buttons">
+          <a href="#contacto" class="btn btn-primary btn-lg">Contáctame</a>
+          <a href="#habilidades" class="btn btn-secondary btn-lg">Ver Habilidades</a>
+          <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" class="btn btn-whatsapp btn-lg" target="_blank"><i
+              class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="photo-container">
+          <!-- Reemplaza la siguiente línea con tu foto -->
+          <!-- <img src="tu-foto.jpg" alt="Ángel Gabriel Vidal Novelo"> -->
+          <div class="photo-placeholder">
+            <i class="fas fa-user"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills" id="habilidades">
+    <div class="skills-container">
+      <h2 class="section-title">Mis Habilidades</h2>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fab fa-html5 fa-3x mb-3"></i>
+              <h5 class="card-title">HTML5</h5>
+              <p class="card-text">Desarrollo de estructuras web semánticas y accesibles.</p>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90"
+                  aria-valuemin="0" aria-valuemax="100">90%</div>
+              </div>
+              <span class="experience-badge">3 años</span>
             </div>
+          </div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="sobre-mi">
-        <div class="about-container">
-            <h2 class="section-title">Sobre Mí</h2>
-            <div class="about-content">
-                <div class="about-card">
-                    <i class="fas fa-code"></i>
-                    <h3>Desarrollo Web</h3>
-                    <p>Con 3 años de experiencia, me apasiona crear páginas web modernas, funcionales y con diseños atractivos que mejoran la experiencia del usuario.</p>
-                </div>
-                <div class="about-card">
-                    <i class="fas fa-users"></i>
-                    <h3>Trabajo en Equipo</h3>
-                    <p>Experiencia trabajando en equipos colaborativos, compartiendo conocimientos y contribuyendo al éxito de proyectos grupales.</p>
-                </div>
-                <div class="about-card">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>Motivación</h3>
-                    <p>Me destaco por motivar a otros desarrolladores, fomentando un ambiente de aprendizaje continuo y crecimiento profesional.</p>
-                </div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fab fa-css3-alt fa-3x mb-3"></i>
+              <h5 class="card-title">CSS3</h5>
+              <p class="card-text">Diseño responsive y animaciones modernas.</p>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85"
+                  aria-valuemin="0" aria-valuemax="100">85%</div>
+              </div>
+              <span class="experience-badge">3 años</span>
             </div>
+          </div>
         </div>
-    </section>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fab fa-java fa-3x mb-3"></i>
+              <h5 class="card-title">Java</h5>
+              <p class="card-text">Desarrollo de aplicaciones robustas y escalables.</p>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75"
+                  aria-valuemin="0" aria-valuemax="100">75%</div>
+              </div>
+              <span class="experience-badge">3 años</span>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fab fa-bootstrap fa-3x mb-3"></i>
+              <h5 class="card-title">Bootstrap</h5>
+              <p class="card-text">Desarrollo de interfaces responsive y modernas.</p>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80"
+                  aria-valuemin="0" aria-valuemax="100">80%</div>
+              </div>
+              <span class="experience-badge">3 años</span>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="far fa-file-word fa-3x mb-3"></i>
+              <h5 class="card-title">Word</h5>
+              <p class="card-text">Creación y edición de documentos profesionales.</p>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 95%;" aria-valuenow="95"
+                  aria-valuemin="0" aria-valuemax="100">95%</div>
+              </div>
+              <span class="experience-badge">5 años</span>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="far fa-file-excel fa-3x mb-3"></i>
+              <h5 class="card-title">Excel</h5>
+              <p class="card-text">Análisis de datos y creación de hojas de cálculo.</p>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85"
+                  aria-valuemin="0" aria-valuemax="100">85%</div>
+              </div>
+              <span class="experience-badge">5 años</span>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="far fa-file-powerpoint fa-3x mb-3"></i>
+              <h5 class="card-title">PowerPoint</h5>
+              <p class="card-text">Diseño de presentaciones impactantes.</p>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90"
+                  aria-valuemin="0" aria-valuemax="100">90%</div>
+              </div>
+              <span class="experience-badge">5 años</span>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <!-- Using a generic icon as Canva's official icon might not be available in Font Awesome -->
+              <i class="fas fa-palette fa-3x mb-3"></i>
+              <h5 class="card-title">Canva</h5>
+              <p class="card-text">Diseño gráfico para redes sociales y marketing.</p>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80"
+                  aria-valuemin="0" aria-valuemax="100">80%</div>
+              </div>
+              <span class="experience-badge">3 años</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer id="contacto">
-        <div class="social-links">
-            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+  <!-- About Section -->
+  <section class="about" id="sobre-mi">
+    <div class="about-container">
+      <h2 class="section-title">Sobre Mí</h2>
+      <div class="about-content">
+        <div class="about-card">
+          <i class="fas fa-code"></i>
+          <h3>Desarrollo Web</h3>
+          <p>Con 3 años de experiencia, me apasiona crear páginas web modernas, funcionales y con diseños atractivos
+            que mejoran la experiencia del usuario.</p>
         </div>
-        <p>&copy; 2024 Ángel Gabriel Vidal Novelo. Todos los derechos reservados.</p>
-    </footer>
+        <div class="about-card">
+          <i class="fas fa-users"></i>
+          <h3>Trabajo en Equipo</h3>
+          <p>Experiencia trabajando en equipos colaborativos, compartiendo conocimientos y contribuyendo al éxito de
+            proyectos grupales.</p>
+        </div>
+        <div class="about-card">
+          <i class="fas fa-lightbulb"></i>
+          <h3>Motivación</h3>
+          <p>Me destaco por motivar a otros desarrolladores, fomentando un ambiente de aprendizaje continuo y
+            crecimiento profesional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hobbies Section -->
+  <section class="hobbies" id="hobbies">
+    <div class="hobbies-container">
+      <h2 class="section-title">Hobbies</h2>
+      <p class="text-center">
+        Me encanta relajarme y explorar mundos virtuales a través de los videojuegos. Algunos de mis favoritos incluyen:
+      </p>
+      <ul class="list-unstyled text-center">
+        <li><i class="fas fa-gamepad"></i> The Legend of Zelda: Breath of the Wild</li>
+        <li><i class="fas fa-gamepad"></i> Minecraft</li>
+        <li><i class="fas fa-gamepad"></i> Super Mario Odyssey</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contacto">
+    <div class="social-links">
+      <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+    </div>
+    <p>&copy; 2024 Ángel Gabriel Vidal Novelo. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
